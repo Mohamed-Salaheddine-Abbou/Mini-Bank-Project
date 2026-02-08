@@ -26,7 +26,23 @@ class UserTransactionsDialog(QDialog):
         self.transactions_table = QTableWidget()
         self.transactions_table.setColumnCount(6) # ID, Type, Amount, Date, Counterparty, Counterparty Account
         self.transactions_table.setHorizontalHeaderLabels(["ID", "Type", "Amount", "Date", "Counterparty", "Counterparty Account"])
-        self.transactions_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        #
+
+        header = self.transactions_table.horizontalHeader()
+
+        # Stretch normal columns
+        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)  # ID
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)  # Type
+        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)  # Amount
+        header.setSectionResizeMode(3, QHeaderView.ResizeToContents)  # Date
+        header.setSectionResizeMode(4, QHeaderView.Stretch)           # Counterparty
+        header.setSectionResizeMode(5, QHeaderView.Stretch)           # Counterparty Account
+
+        # Ensure last column is wide enough for the title
+        self.transactions_table.setColumnWidth(5, 220)
+
+        # 
+        # self.transactions_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.transactions_table.setAlternatingRowColors(True)
         self.transactions_table.verticalHeader().setDefaultSectionSize(35)
         

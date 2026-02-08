@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+# env/
+.venv/
+
+# Environment Variables (Sensitive - DO NOT UPLOAD)
+# .env
+
+# Local Session Data
+session.json
+
+# PyInstaller (Build artifacts)
+*.spec
+dist/
+build/
+
+# IDE settings
+.vscode/
+.idea/
